@@ -2,7 +2,7 @@
 <html style="height: 100%;">
 <head>
 <meta charset="utf-8">
-<title>作业？嗯？</title>
+<title>wk</title>
 <style>
     #main{
         background: black;
@@ -26,7 +26,7 @@
 <div id="main" ></div>
 
 </body>
-　　<script src="./jqurey.js"></script>
+　　<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
 <script>
     let index=0
   $("#main").append("<p id='showText' ></p>")
@@ -66,21 +66,27 @@ return new Promise((resolve, reject) => {
             }
 function onefunPic(item){
 return new Promise((resolve, reject) => {
-    function typePic(picurl){
+    
         var myParent = document.getElementById("main"); 
-        $("#main").append("<img width='50%' height='50%' src='./pic/pic1.jpg'  ></img>")
+        $("#main").append("<img id='picContainer' width='50%' height='50%' src='./pic/pic"+item+".jpg'  ></img>")
                
+   
+    function del(){
+      $("#picContainer").remove()
       resolve()
     }
-    let  itemrun=  setTimeout(typePic.bind(this,item), 400);
+      setTimeout(del, 1600);
                 })
             }
 async function run(){
     await oneFunWord("我叫雷欣荣")
-   await onefunPic("")
-// for(let i of wordarray){
-//     await oneFunWord(i)
-// }
+    for(let i=1;i<=9;i++){
+      await onefunPic(i)
+    }
+
+for(let i of wordarray){
+    await oneFunWord(i)
+}
        
     
         
