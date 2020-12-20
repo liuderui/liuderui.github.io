@@ -1,11 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html style="height: 100%;">
 <head>
 <meta charset="utf-8">
-<title>菜鸟教程(runoob.com)</title>
+<title>作业？嗯？</title>
+<style>
+    #main{
+        background: black;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+    }
+ #showText{
+   
+     color:red;
+     font-size: 88px;
+ }
+    
+</style>
 </head>
-<body>
-    <h1>我的第一个标题</h1>
-    <p>我的第一个段落。</p>
+<body style="height: 100%;">
+
+<div id="main" ></div>
+
 </body>
+　　<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    let index=0
+  $("#main").append("<p id='showText' ></p>")
+  /*
+宇宙第一潜在鸽王
+
+拖延俱乐部顶级VIP
+
+婴儿肥纠缠不清患者
+
+退堂鼓国家级表演艺术家
+
+国家一级退堂鼓表演专家
+
+懒癌协会会长兼管临时抱佛脚协会
+  */
+  var wordarray=["宇宙第一潜在鸽王","拖延俱乐部顶级VIP","婴儿肥纠缠不清患者","退堂鼓国家级表演艺术家","国家一级退堂鼓表演专家","懒癌协会会长兼管临时抱佛脚协会"]
+  var itemword="宇宙第一潜在鸽王"
+   
+    function oneFunWord(item){
+return new Promise((resolve, reject) => {
+    function type(word){
+      console.log(index)
+         if(index==word.length+1){
+           clearInterval(itemrun)
+           word=""
+           document.getElementById("showText").innerText = word;
+           index=0
+           resolve()
+         }else{
+   document.getElementById("showText").innerText = word.substring(0,index++);
+         }
+     
+    }
+    let  itemrun=  setInterval(type.bind(this,item), 400);
+                })
+            }
+function onefunPic(item){
+return new Promise((resolve, reject) => {
+    function typePic(picurl){
+        var myParent = document.getElementById("main"); 
+        $("#main").append("<img width='50%' height='50%' src='./pic/pic1.jpg'  ></img>")
+               
+      resolve()
+    }
+    let  itemrun=  setTimeout(typePic.bind(this,item), 400);
+                })
+            }
+async function run(){
+    await oneFunWord("我叫雷欣荣")
+   await onefunPic("")
+// for(let i of wordarray){
+//     await oneFunWord(i)
+// }
+       
+    
+        
+    
+}
+run()
+   
+
+    
+
+
+</script>
 </html>
